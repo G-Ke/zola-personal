@@ -1,0 +1,38 @@
+{% macro sidebar() %}
+<div id="sidebar" class="lg:flex hidden overflow-hidden absolute left-0 top-0 h-full z-50 transition-transform duration-300 ease-in-out transform -translate-x-full lg:translate-x-0">
+    <aside class="lex-shrink-0 h-screen flex flex-col gap-2 px-2 bg-base-300">
+        <div class="tooltip tooltip-bottom tooltip-neutral" data-tip="Home">
+            <a class="btn btn-square btn-ghost text-secondary text-2xl mt-2" href="/">
+                <i class="fa-solid fa-house-chimney-window"></i>
+            </a>
+        </div>
+        <div class="divider my-0 opacity-30"></div>
+        <div class="tooltip tooltip-top tooltip-neutral" data-tip="Dev">
+            <a class="btn btn-square btn-ghost text-xl" href="/dev">
+                <i class="fa-solid fa-code"></i>
+            </a>
+        </div>
+        <div class="tooltip tooltip-top tooltip-neutral" data-tip="Posts">
+            <a class="btn btn-square btn-ghost text-xl" href="/posts">
+                <i class="fa-brands fa-readme"></i>
+            </a>
+        </div>
+        <div class="divider my-0 opacity-30"></div>
+        <div class="tooltip tooltip-top tooltip-neutral" data-tip="Github">
+            <a class="btn btn-square btn-ghost text-xl" href="https://github.com/g-ke" target="_blank">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </div>
+        <div class="tooltip tooltip-top tooltip-neutral" data-tip="LinkedIn">
+            <a class="btn btn-square btn-ghost text-xl" href="https://linkedin.com" target="_blank">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+        <div class="mt-auto">
+        </div>
+    </aside>
+</div>
+<button id="sidebar-toggle" class="lg:hidden fixed top-4 left-4 z-50 btn btn-circle btn-ghost">
+    <i class="fas fa-bars"></i>
+</button>
+{% endmacro %}
