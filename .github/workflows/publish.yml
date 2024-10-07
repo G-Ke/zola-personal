@@ -13,6 +13,8 @@ jobs:
       - uses: taiki-e/install-action@v2
         with:
           tool: zola@0.17.2
+      - name: Get Tailwind
+        run: npm install tailwind@latest
       - name: Build
         run: npm run build
       - name: Configure AWS Credentials
