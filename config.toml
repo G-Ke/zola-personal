@@ -1,6 +1,6 @@
 # The URL the site will be built for
 # The base URL of the site; the only required configuration variable.
-base_url = "http://127.0.0.1:1111/"
+base_url = "https://georgekenneally.com/"
 
 # The site title and description; used in feeds by default.
 title = "🪩 Zola + Tailwind CSS: because they deserve to be together 💅"

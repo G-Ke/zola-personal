@@ -12,8 +12,7 @@
 
   {# Main CSS styling goes here, which is output by Tailwind #}
   <link rel="stylesheet" type="text/css" href="/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -24,6 +23,7 @@
 
     })();
   </script>
+  <link rel="icon" href="{{ get_url(path='favicon.ico') }}">
 </head>
 
 <body class="flex justify-center min-h-screen">
@@ -98,23 +98,23 @@
     observer.observe(modal, { attributes: true });
 
     // Function to apply the theme based on the stored value or default
-function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    document.getElementById('theme-toggle').checked = (theme === 'autumn');
-}
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        document.getElementById('theme-toggle').checked = (theme === 'autumn');
+    }
 
-// Load theme on page load
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'business'; // Default is 'business'
-    applyTheme(savedTheme);
-});
+    // Load theme on page load
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('theme') || 'business'; // Default is 'business'
+        applyTheme(savedTheme);
+    });
 
-// Add event listener to the toggle to change the theme
-document.getElementById('theme-toggle').addEventListener('change', (event) => {
-    const theme = event.target.checked ? 'autumn' : 'business';
-    applyTheme(theme);
-    localStorage.setItem('theme', theme); // Save the user's theme selection
-});
+    // Add event listener to the toggle to change the theme
+    document.getElementById('theme-toggle').addEventListener('change', (event) => {
+        const theme = event.target.checked ? 'autumn' : 'business';
+        applyTheme(theme);
+        localStorage.setItem('theme', theme); // Save the user's theme selection
+    });
   </script>
 
 
