@@ -1,101 +1,11 @@
-{% import "navbar.html" as nav %}
-{% import "sidebar.html" as sidebar %}
-<!DOCTYPE html>
-<html lang="{{ lang }}" data-theme="emerald" class="bg-base-300">
+{% extends "base.html" %}
 
-<head>
-
-  <!-- HTML Meta Tags -->
-  <title>{{ section.title }}</title>
-  <meta name="description" content="{{ section.description }}">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <!-- Twitter Meta Tags -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta property="twitter:domain" content="zola-tailwind.spence.es">
-  <meta property="twitter:url" content="{{ config.base_url }}">
-  <meta name="twitter:title" content="{{ section.title }}">
-  <meta name="twitter:description" content="{{ section.description }}">
-  <meta name="twitter:image" content="/social_preview.jpg">
-
-  <!-- e.g. for safari tab bar -->
-  <meta name="theme-color" content="#10182B" />
-
-</head>
-
-<body class="flex justify-center min-h-screen">
-  <div class="flex w-full max-w-7xl relative">
-    {{ sidebar::sidebar() }}
-
-    <div class="flex flex-col flex-grow lg:ml-16">
-      {{ nav::navbar() }}
-      <main class="flex-grow container mx-auto px-4 py-6 flex flex-col items-center bg-base-200 min-w-full">
-        <div class="text-4xl font-bold text-center tracking-wide">George Kenneally</div>
+{% block content %}
+<div class="text-4xl font-bold text-center tracking-wide">George Kenneally</div>
         <div class="badge badge-md text-xs text-center font-mono tracking-wider mt-2"><i class="fa-solid fa-earth-americas text-secondary mr-1"></i>
           Boston, Massachusetts</div>
         <div class="text-md text-center font-mono mt-2">Technical client support professional and seasoned generalist
           tinkerer. </div>
         <div class="divider text-xs"><i class="fa-solid fa-angles-down opacity-70"></i></div>
         <div class="text-center text-3xl text-accent">I am currently doing some remodeling as I migrate the site from Hugo to Zola. <br /> Please excuse the lack of interesting content.</div>
-      </main>
-      <footer class="footer footer-center bg-base-100 text-base-content p-4 opacity-40 shadow-sm z-[-50]">
-        <aside>
-          <p class="text-xs">Copyright <span class="font-bold">©</span> '24 <i class="fa-solid fa-clover text-lime-800 opacity-60"></i>
-            George Kenneally <i class="fa-solid fa-clover text-lime-800 opacity-60"></i> I reserve all rights.</p>
-        </aside>
-      </footer>
-    </div>
-  </div>
-
-  <script>
-    const modal = document.getElementById('my_modal_3');
-    const input = modal.querySelector('input');
-
-    // Function to open the modal
-    function openModal() {
-      modal.showModal();
-      setTimeout(() => input.focus(), 100);
-    }
-
-    // Event listener for the keyboard shortcut
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault(); // Prevent the default browser action
-        openModal();
-      }
-    });
-
-    modal.addEventListener('show', () => {
-      setTimeout(() => input.focus(), 100);
-    });
-
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modal.close();
-      }
-    });
-
-    // MutationObserver for focusing the input
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'open' && modal.open) {
-          input.focus();
-        }
-      });
-    });
-
-    observer.observe(modal, { attributes: true });
-  </script>
-
-</body>
-
-</html>
+{% endblock content %}
