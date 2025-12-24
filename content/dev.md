@@ -8,7 +8,7 @@ page_template = "page.html"
 ### This Website
 This site is built using [Zola](https://www.getzola.org/), a SSG (Static Site Generator) written in Rust, and is deployed to a simple S3 bucket. It is styled using Tailwind + DaisyUI to enable robust customization that works well for generating a small but attractive and feature-rich static website.
 
-I have plans to finish the functionality of the command search bar, add custom styling for the Zola markdown-converted HTML, and creating some helpful shortcodes. 
+I have plans to finish the functionality of the command search bar, add custom styling for the Zola markdown-converted HTML, and add some helpful shortcodes. 
 
 ### My "Self-Hosted" Cloud
 I have an AWS VPS configured with [Coolify](https://coolify.io/), *"An open-source & self-hostable Heroku / Netlify / Vercel alternative"*. This allows me to have a centralized location to deploy and manage mulitple applications, from sources like cloud or local servers, git deployments, docker containers, docker-compose builds, and more. I run several services here and have the network secured with [Tailscale](https://tailscale.com/).

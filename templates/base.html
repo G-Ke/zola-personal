@@ -1,4 +1,4 @@
-{% import "navbar.html" as nav %}
+{% import "pill_navbar.html" as pill_navbar %}
 {% import "sidebar.html" as sidebar %}
 <!DOCTYPE html>
 <html lang="{{ lang }}" data-theme="business" class="bg-base-300">
@@ -17,7 +17,7 @@
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script>
-        (function() {
+    (function () {
       const savedTheme = localStorage.getItem('theme') || 'business'; // Default is 'business'
       document.documentElement.setAttribute('data-theme', savedTheme);
 
@@ -25,94 +25,44 @@
   </script>
   <link rel="icon" href="{{ get_url(path='favicon.ico') }}">
 </head>
+
 <body class="flex justify-center min-h-screen">
   <div class="flex w-full max-w-7xl relative">
-    {{ sidebar::sidebar() }}
-
+    <!-- sidebar component {{ sidebar::sidebar() }} -->
     <div class="flex flex-col flex-grow lg:ml-16">
-      <div class="navbar bg-base-200 shadow-md">
-        <div class="navbar-start">
-        </div>
-        <div class="navbar-center"></div>
-        <div class="navbar-end">
-          {{ command::command() }}
-          <i class="fa-solid fa-moon opacity-90 mr-2"></i>
-          <label class="grid cursor-pointer place-items-center">
-            <input type="checkbox" value="autumn" id="theme-toggle" 
-              class="toggle toggle-sm theme-controller bg-base-content col-span-2 col-start-1 row-start-1" />
-          </label>
-          <i class="fa-solid fa-sun ml-2 mr-2 opacity-90"></i>
-        </div>
-      </div>
+      {{ pill_navbar::navbar() }}
       <main class="flex-grow container mx-auto flex flex-col items-center bg-base-200 min-w-full">
         {% block content %}{% endblock content %}
       </main>
       <footer class="footer footer-center bg-base-100 text-base-content p-4 opacity-40 shadow-sm z-[-50]">
         <aside>
-          <p class="text-xs">Copyright <span class="font-bold">©</span> '24 <i
+          <p class="text-xs">Copyright <span class="font-bold">©</span> 2024 - 2026 <i
               class="fa-solid fa-clover text-lime-800 opacity-60"></i>
-            George Kenneally <i class="fa-solid fa-clover text-lime-800 opacity-60"></i> I reserve all rights.</p>
+            George Kenneally <i class="fa-solid fa-clover text-lime-800 opacity-80"></i> I reserve all rights.</p>
         </aside>
       </footer>
     </div>
   </div>
 
   <script>
-    const modal = document.getElementById('my_modal_3');
-    const input = modal.querySelector('input');
-
-    // Function to open the modal
-    function openModal() {
-      modal.showModal();
-      setTimeout(() => input.focus(), 100);
-    }
-
-    // Event listener for the keyboard shortcut
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-        e.preventDefault(); // Prevent the default browser action
-        openModal();
-      }
-    });
-
-    modal.addEventListener('show', () => {
-      setTimeout(() => input.focus(), 100);
-    });
-
-    input.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        modal.close();
-      }
-    });
-
-    // MutationObserver for focusing the input
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (mutation.attributeName === 'open' && modal.open) {
-          input.focus();
-        }
-      });
-    });
-
-    observer.observe(modal, { attributes: true });
 
     // Function to apply the theme based on the stored value or default
     function applyTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        document.getElementById('theme-toggle').checked = (theme === 'autumn');
+      document.documentElement.setAttribute('data-theme', theme);
+      document.getElementById('theme-toggle').checked = (theme === 'corporate');
     }
 
     // Load theme on page load
     document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('theme') || 'business'; // Default is 'business'
-        applyTheme(savedTheme);
+      const savedTheme = localStorage.getItem('theme') || 'business'; // Default is 'business'
+      applyTheme(savedTheme);
     });
 
     // Add event listener to the toggle to change the theme
     document.getElementById('theme-toggle').addEventListener('change', (event) => {
-        const theme = event.target.checked ? 'autumn' : 'business';
-        applyTheme(theme);
-        localStorage.setItem('theme', theme); // Save the user's theme selection
+      const theme = event.target.checked ? 'corporate' : 'business';
+      applyTheme(theme);
+      localStorage.setItem('theme', theme); // Save the user's theme selection
     });
   </script>
 

@@ -1,0 +1,49 @@
+{% macro navbar() %}
+<div class="sticky top-4 z-50 flex justify-center w-full mb-8">
+    <div
+        class="navbar bg-base-100/90 backdrop-blur shadow-xl rounded-full w-[95%] max-w-5xl border border-base-content/10 px-6">
+        <div class="navbar-start">
+            <a class="btn btn-ghost" href="/">
+                <i class="fa-solid fa-layer-group text-xl"></i>
+            </a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 gap-1">
+                <li>
+                    <a href="/dev" class="font-medium">
+                        <i class="fa-solid fa-code"></i>Dev
+                    </a>
+                </li>
+                <li>
+                    <a href="/posts" class="font-medium">
+                        <i class="fa-brands fa-readme"></i>Posts
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/g-ke" target="_blank" class="font-medium">
+                        <i class="fa-brands fa-github"></i>Github ⬈
+                    </a>
+                </li>
+                <li>
+                    <a href="https://linkedin.com" target="_blank" class="font-medium">
+                        <i class="fa-brands fa-linkedin-in"></i>LinkedIn ⬈
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar-end gap-2">
+
+            <label class="swap swap-rotate btn btn-ghost">
+                <!-- this hidden checkbox controls the state -->
+                <input type="checkbox" class="theme-controller" value="corporate" id="theme-toggle" />
+
+                <!-- sun icon -->
+                <i class="swap-on fa-solid fa-sun text-lg"></i>
+
+                <!-- moon icon -->
+                <i class="swap-off fa-solid fa-moon text-lg"></i>
+            </label>
+        </div>
+    </div>
+</div>
+{% endmacro %}

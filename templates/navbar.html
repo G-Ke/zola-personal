@@ -1,15 +1,13 @@
-{% import "command.html" as command %}
 {% macro navbar() %}
 <div class="navbar bg-base-200 shadow-md">
   <div class="navbar-start">
-
   </div>
   <div class="navbar-center"></div>
   <div class="navbar-end">
     <div class="text-xs opacity-90 mr-1">
       <kbd class="kbd text-secondary kbd-xs">ctrl</kbd> + <kbd class="kbd text-secondary kbd-xs">k</kbd>
     </div>
-    {{ command::command() }}
+
     <button class="btn btn-ghost">
       <div class="indicator">
         <i class="fa-solid fa-gem"></i>
