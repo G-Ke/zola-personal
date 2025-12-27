@@ -5,17 +5,16 @@ slug = "dev"
 page_template = "page.html"
 +++
 
-### This Website
-This site is built using [Zola](https://www.getzola.org/), a SSG (Static Site Generator) written in Rust, and is deployed to a simple S3 bucket. It is styled using Tailwind + DaisyUI to enable robust customization that works well for generating a small but attractive and feature-rich static website.
+# This Website
 
-I have plans to finish the functionality of the command search bar, add custom styling for the Zola markdown-converted HTML, and add some helpful shortcodes. 
+## Zola
+This site is built using [Zola](https://www.getzola.org/), a SSG (Static Site Generator) written in Rust. It is styled using Tailwind + DaisyUI to enable robust customization that works well for generating a small but attractive and feature-rich static website. DaisyUI provides a set of pre-built components and utilities that can be easily customized to create a unique and modern look for your website, and saves me time from having to build styling and components from scratch. Content is converted from markdown to HTML using Zola's built-in markdown converter.
 
-### My "Self-Hosted" Cloud
-I have an AWS VPS configured with [Coolify](https://coolify.io/), *"An open-source & self-hostable Heroku / Netlify / Vercel alternative"*. This allows me to have a centralized location to deploy and manage mulitple applications, from sources like cloud or local servers, git deployments, docker containers, docker-compose builds, and more. I run several services here and have the network secured with [Tailscale](https://tailscale.com/).
+## Deployment to AWS
 
-I will likely be doing a small write-up about my experience with Coolify after some additional testing and usage. 
+The site is deployed using a GitHub Actions workflow that is triggered on pushes to main. The workflow checks out the code, installs Zola, Tailwind, and DaisyUI, and then builds the site. I use `configure-aws-credentials@v4` to configure AWS credentials by assuming a role in my AWS account. The built site is then synced using the AWS CLI to an S3 bucket that is configured for static website hosting and is cached by AWS's CDN, CloudFront. Once the sync is complete, the CloudFront distribution is invalidated to ensure the latest version of the site is served.
 
-### Stasher CLI
+# Stasher CLI
 I am currently creating a Python CLI with an interactive AI-agent function that allows me to track and manage my digital content. It can be run manually to perform tasks such as syncing playlists from services like YouTube to my local content database or in Stasher Agent mode where you can give commands in natural language to enable the agent to perform tasks on your behalf. I am currently using [Click](https://click.palletsprojects.com/en/7.x/) to handle CLI functionality and [LiteLLM](https://litellm.ai) to handle LLM API calls. I am rolling my own agent, tools, and task logic instead of utilizing a package like [Crew.ai](https://www.crewai.com/).
 
 

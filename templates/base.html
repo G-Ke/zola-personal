@@ -31,14 +31,14 @@
     <!-- sidebar component {{ sidebar::sidebar() }} -->
     <div class="flex flex-col flex-grow lg:ml-16">
       {{ pill_navbar::navbar() }}
-      <main class="flex-grow container mx-auto flex flex-col items-center bg-base-200 min-w-full">
+      <main class="flex-grow container mx-auto flex flex-col items-center bg-base-200 min-w-full rounded-t-xl">
         {% block content %}{% endblock content %}
       </main>
-      <footer class="footer footer-center bg-base-100 text-base-content p-4 opacity-40 shadow-sm z-[-50]">
+      <footer class="footer footer-center bg-base-200 text-base-content p-4 font-mono shadow-sm z-[-50]">
         <aside>
           <p class="text-xs">Copyright <span class="font-bold">©</span> 2024 - 2026 <i
-              class="fa-solid fa-clover text-lime-800 opacity-60"></i>
-            George Kenneally <i class="fa-solid fa-clover text-lime-800 opacity-80"></i> I reserve all rights.</p>
+              class="fa-solid fa-clover text-green-700"></i>
+            George Kenneally <i class="fa-solid fa-clover text-green-700"></i> All rights reserved.</p>
         </aside>
       </footer>
     </div>
