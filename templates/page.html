@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!-- something here is causing the MAIN div to siden slightly when cliocking on to a post from the posts-section. !-->
-  <article class="flex-grow container mx-auto px-4 py-6 flex flex-col items-center bg-base-200 min-w-full">
-    <div class="text-3xl font-bold text-center tracking-wide">{{ page.title }}</div>
-    {% if page.date %}
-    <div class="badge bade-md text-xs text-center font-mono tracking-wider mt-2"><i class="fa-solid fa-calendar-day text-secondary mr-1"></i> {{ page.date }}</div>
-    {% endif %}
-    <div class="text-sm text-center font-mono mt-2">{{ page.description }}</div>
-    <div class="divider text-xs"><i class="fa-solid fa-angles-down opacity-70"></i></div>
-    {% if page.extra.image %}
-      <img src="{{ page.extra.image }}" class="max-w-3xl my-4 rounded-lg shadow-xl" />
-    {% endif %}
-    <div class="max-w-5xl mt-3 prose prose-lg">
-      {{ page.content | safe }}
-    </div>
-  </article>
+<article class="flex-grow w-full px-4 py-6 flex flex-col items-center bg-base-200">
+  <div class="text-3xl font-bold text-center tracking-wide">{{ page.title }}</div>
+  {% if page.date %}
+  <div class="badge text-xs text-center font-mono tracking-wider mt-2"><i
+      class="fa-solid fa-calendar-day text-secondary mr-1"></i> {{ page.date }}</div>
+  {% endif %}
+  <div class="text-sm text-center font-mono mt-2">{{ page.description }}</div>
+  <div class="divider text-xs"><i class="fa-solid fa-angles-down opacity-70"></i></div>
+  {% if page.extra.image %}
+  <img src="{{ page.extra.image }}" class="w-full h-auto max-w-3xl my-4 rounded-lg shadow-xl" />
+  {% endif %}
+  <div class="w-full max-w-5xl mt-3 prose prose-lg min-w-0 break-words">
+    {{ page.content | safe }}
+  </div>
+</article>
 {% endblock content %}

@@ -28,10 +28,9 @@
 
 <body class="flex justify-center min-h-screen">
   <div class="flex w-full max-w-7xl relative">
-    <!-- sidebar component {{ sidebar::sidebar() }} -->
-    <div class="flex flex-col flex-grow lg:ml-16">
+    <div class="flex flex-col flex-grow lg:ml-16 min-w-0">
       {{ pill_navbar::navbar() }}
-      <main class="flex-grow container mx-auto flex flex-col items-center bg-base-200 min-w-full rounded-t-xl">
+      <main class="flex-grow w-full flex flex-col items-center bg-base-200 rounded-t-xl">
         {% block content %}{% endblock content %}
       </main>
       <footer class="footer footer-center bg-base-200 text-base-content p-4 font-mono shadow-sm z-[-50]">
@@ -43,9 +42,7 @@
       </footer>
     </div>
   </div>
-
   <script>
-
     // Function to apply the theme based on the stored value or default
     function applyTheme(theme) {
       document.documentElement.setAttribute('data-theme', theme);
@@ -65,8 +62,6 @@
       localStorage.setItem('theme', theme); // Save the user's theme selection
     });
   </script>
-
-
 </body>
 
 </html>
